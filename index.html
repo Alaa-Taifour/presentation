@@ -2,214 +2,157 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Comprehensive Digital Growth Strategy | Golden Corn Export USA</title>
+  <title>SEO Strategy Dashboard | Golden Corn Export USA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Analytics report and 12‑month SEO strategy for Golden Corn Export USA and Axion divisions to turn low‑traffic pages into a B2B export lead machine.">
+  <meta name="description" content="Two-panel dashboard showing the SEO report and competitor gap analysis for Golden Corn Export USA.">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Layout for two windows */
+    .dashboard-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #020617;
+    }
+
+    .dashboard-header {
+      padding: 1.2rem 1.2rem 0.8rem;
+      color: #e5e7eb;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .dashboard-header h1 {
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    .dashboard-header p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .dashboard-main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .panel {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .panel:last-child {
+      border-right: none;
+    }
+
+    .panel-header {
+      padding: 0.7rem 1rem;
+      background: #020617;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .panel-header h2 {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .panel-header span {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .panel-body {
+      flex: 1;
+      background: #0b1120;
+    }
+
+    .panel-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-main {
+        flex-direction: column;
+      }
+
+      .panel {
+        border-right: none;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+        height: 50vh;
+      }
+
+      .panel:last-child {
+        border-bottom: none;
+      }
+
+      .panel-header h2 {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Hero / Header -->
-  <header class="hero">
-    <div class="hero-inner">
-      <h1>Comprehensive Digital Growth Strategy</h1>
-      <p class="hero-subtitle">
-        Analytics Report + Full SEO Optimization Plan
-      </p>
-      <p class="hero-meta">
-        For: Axion Automobile · Axion Agriculture · Golden Corn Export USA<br>
-        Date: March 25, 2026 · Prepared for: Alaa
-      </p>
-      <a href="#overview" class="btn btn-primary">View Strategy Overview</a>
-      <a href="#downloads" class="btn btn-secondary">Download Full Deck</a>
-    </div>
-  </header>
-
-  <!-- High-Level Overview -->
-  <section id="overview" class="section section-light">
-    <div class="container">
-      <h2>Main Objective</h2>
-      <p>
-        Turn low‑traffic pages into a lead‑generating B2B export machine, targeting
-        <strong>50–100 qualified quote requests per month within 6–9 months.</strong>
-      </p>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <h3>Current Traffic</h3>
-          <p>Demo pages: &lt;100 visits/month<br>Golden Corn /products/: ~500–1,000 visits/month</p>
-        </div>
-        <div class="stat-card">
-          <h3>12‑Month Target</h3>
-          <p>25,000+ monthly visits and a stable pipeline of qualified B2B leads.</p>
-        </div>
-        <div class="stat-card">
-          <h3>Primary Focus</h3>
-          <p>Golden Corn Export USA /products/ and new product + country pages.</p>
-        </div>
+  <div class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <h1>SEO Strategy Dashboard</h1>
+        <p>Golden Corn Export USA · Axion Divisions · Prepared for Alaa</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Analytics Snapshot -->
-  <section id="analytics" class="section section-dark">
-    <div class="container">
-      <h2>Analytics Snapshot (March 2026)</h2>
-      <div class="cards-grid">
-        <article class="card">
-          <h3>Axion Automobile (Demo)</h3>
-          <ul>
-            <li>Site Type: Demo / staging</li>
-            <li>Content: ~120 words</li>
-            <li>Traffic: &lt;100 visits/month</li>
-            <li>Keywords: 0, no backlinks</li>
-            <li>Action: Apply <code>noindex</code></li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Axion Agriculture (Demo)</h3>
-          <ul>
-            <li>Site Type: Demo / staging</li>
-            <li>Content: ~250 words</li>
-            <li>Traffic: &lt;100 visits/month</li>
-            <li>Keywords: 0, no backlinks</li>
-            <li>Action: Apply <code>noindex</code></li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Golden Corn Export USA</h3>
-          <ul>
-            <li>Site Type: Live / production</li>
-            <li>Focus: Yellow corn & feed ingredients</li>
-            <li>Traffic: ~500–1,000 visits/month</li>
-            <li>Keywords: Few, mostly brand</li>
-            <li>Action: Priority 1 – full optimization</li>
-          </ul>
-        </article>
+      <div>
+        <p>Goal: 50–100 qualified B2B quotes/month in 6–9 months</p>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Strategy Overview -->
-  <section id="strategy" class="section section-light">
-    <div class="container">
-      <h2>SEO Strategy Overview</h2>
-      <p>
-        The strategy focuses 80% of effort on Golden Corn Export USA and 20% on keeping Axion demo
-        environments clean as staging only.
-      </p>
-      <div class="strategy-grid">
-        <div class="strategy-column">
-          <h3>Target Audience</h3>
-          <ul>
-            <li>B2B importers and feed mills</li>
-            <li>Commodity traders and distributors</li>
-            <li>Regions: UAE, Saudi Arabia, Qatar, wider Middle East, Africa, Asia, Europe</li>
-          </ul>
+    <main class="dashboard-main">
+      <!-- Left Panel: SEO Report -->
+      <section class="panel">
+        <header class="panel-header">
+          <h2>SEO Report</h2>
+          <span>index → seo_report.html</span>
+        </header>
+        <div class="panel-body">
+          <iframe
+            src="seo_report.html"
+            class="panel-iframe"
+            title="SEO Report">
+          </iframe>
         </div>
-        <div class="strategy-column">
-          <h3>Core Objectives</h3>
-          <ul>
-            <li>Top 3 rankings for high‑intent export keywords</li>
-            <li>50–100 qualified quote requests/month in 6–9 months</li>
-            <li>Build defensible authority in yellow corn & feed exports</li>
-          </ul>
-        </div>
-        <div class="strategy-column">
-          <h3>Key Pillars</h3>
-          <ul>
-            <li>On‑page & content expansion</li>
-            <li>Technical optimization & analytics</li>
-            <li>Off‑page & international SEO</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- 90-Day Roadmap -->
-  <section id="roadmap" class="section section-dark">
-    <div class="container">
-      <h2>90‑Day Execution Roadmap</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <h3>Weeks 1–2 · Technical Foundation</h3>
-          <ul>
-            <li>Install GA4 and Google Search Console</li>
-            <li>Add meta titles and descriptions to key pages</li>
-            <li>Apply <code>noindex</code> to both Axion demo pages</li>
-            <li>Set up XML sitemap and robots.txt</li>
-          </ul>
+      <!-- Right Panel: Competitor / Gap Analysis -->
+      <section class="panel">
+        <header class="panel-header">
+          <h2>Competitor Gap & Roadmap</h2>
+          <span>index → competitor_gap.html</span>
+        </header>
+        <div class="panel-body">
+          <iframe
+            src="competitor_gap.html"
+            class="panel-iframe"
+            title="Competitor Gap Analysis">
+          </iframe>
         </div>
-        <div class="timeline-item">
-          <h3>Weeks 3–6 · Content Authority</h3>
-          <ul>
-            <li>Rewrite /products/ to 2,000+ words with specs, certificates, packaging, shipping</li>
-            <li>Create /yellow-corn/, /barley-feed/, /soybean-meal/ product pages</li>
-            <li>Add optimized images and alt text across key pages</li>
-          </ul>
-        </div>
-        <div class="timeline-item">
-          <h3>Month 2–3 · Lead Generation</h3>
-          <ul>
-            <li>Publish 4+ strategic blog posts</li>
-            <li>Launch at least 2 country landing pages (e.g., /export-to-uae/)</li>
-            <li>Start link building and directory listings</li>
-            <li>Promote WhatsApp and quote CTAs on key pages</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KPIs & Downloads -->
-  <section id="kpis" class="section section-light">
-    <div class="container">
-      <h2>Expected Results & KPIs</h2>
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <h3>Traffic Growth</h3>
-          <p>From ~1,000 visits/month today to 8,000–15,000 at 6 months, and 25,000+ at 12 months.</p>
-        </div>
-        <div class="kpi-card">
-          <h3>Keyword Rankings</h3>
-          <p>Top 3 positions for 15+ high‑intent and long‑tail export keywords.</p>
-        </div>
-        <div class="kpi-card">
-          <h3>Lead Generation</h3>
-          <p>30–60 qualified leads/month at 6 months, scaling to 50–100 in 6–9 months.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="downloads" class="section section-dark">
-    <div class="container">
-      <h2>Next Steps & Downloads</h2>
-      <p>
-        Choose how you want to move from strategy to execution. All assets can be customized for Axion and Golden Corn branding.
-      </p>
-      <ul class="download-list">
-        <li>Download full slide deck (PDF/PowerPoint)</li>
-        <li>Download detailed SEO report (Google Docs / Word)</li>
-        <li>Request meta tags + full /products/ content package</li>
-      </ul>
-      <a href="#contact" class="btn btn-primary">Request Implementation</a>
-    </div>
-  </section>
-
-  <!-- Contact / CTA -->
-  <section id="contact" class="section section-light">
-    <div class="container">
-      <h2>Ready to Execute?</h2>
-      <p>
-        Approve this plan and start with: meta tags, complete /products/ rewrite, keyword map,
-        content calendar, and a full technical audit of goldencornexportusa.com.
-      </p>
-      <p>
-        Preferred start option: <strong>“Create the meta tags + rewritten /products/ content.”</strong>
-      </p>
-    </div>
-  </section>
+      </section>
+    </main>
+  </div>
 
 </body>
 </html>
