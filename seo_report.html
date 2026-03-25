@@ -3,69 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Strategy Audit - Mr. Nawras</title>
     <style>
         :root {
-            --matte-black: #121212; --surface: #1e1e1e; --gold: #d4af37;
-            --blue: #0a1931; --red: #e74c3c; --text: #e0e0e0;
+            --matte-black: #121212;
+            --dark-surface: #1e1e1e;
+            --gold: #d4af37;
+            --blue: #0a1931;
+            --green: #2ecc71;
+            --red: #e74c3c;
+            --text: #e0e0e0;
         }
-        body {
-            font-family: -apple-system, system-ui, sans-serif;
-            background-color: var(--matte-black);
-            color: var(--text);
-            margin: 0; padding: 20px;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        .container { max-width: 800px; margin: 0 auto; }
-        .card { 
-            background: var(--surface); border-radius: 12px; 
-            padding: 25px; margin-bottom: 20px; 
-            border-left: 4px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        h2 { color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-top: 0; font-size: 20px; }
-        .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .status-item { background: #252525; padding: 15px; border-radius: 8px; border: 1px solid #333; }
-        .tag { font-size: 10px; font-weight: bold; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
-        .tag-red { background: rgba(231, 76, 60, 0.2); color: var(--red); border: 1px solid var(--red); }
-        .critical-list { list-style: none; padding: 0; }
-        .critical-list li { margin-bottom: 15px; padding-left: 30px; position: relative; }
-        .critical-list li::before { content: '⚠️'; position: absolute; left: 0; }
+        body { font-family: -apple-system, sans-serif; background: var(--matte-black); color: var(--text); margin: 0; padding: 0; line-height: 1.5; }
+        header { background: linear-gradient(to right, var(--blue), var(--matte-black)); padding: 25px 20px; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; text-align: center; }
+        header h1 { font-size: 18px; margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
+        .container { padding: 15px; max-width: 600px; margin: 0 auto; }
+        .card { background: var(--dark-surface); border-radius: 12px; padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .card h3 { margin-top: 0; font-size: 16px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .status-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+        .status-table td { padding: 12px 8px; border-bottom: 1px solid #2a2a2a; }
+        .status-table tr:last-child td { border: none; }
+        .tag { padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; text-transform: uppercase; }
+        .tag-warn { background: rgba(231, 76, 60, 0.2); color: var(--red); border: 1px solid var(--red); }
+        .tag-ok { background: rgba(46, 204, 113, 0.2); color: var(--green); border: 1px solid var(--green); }
+        .metric { color: var(--gold); font-weight: bold; }
+        .highlight-box { background: #252525; padding: 15px; border-radius: 8px; margin-top: 10px; border: 1px dashed #444; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <h2>Executive SEO Summary</h2>
-            <p>Analysis of current digital asset health and indexing vulnerabilities for the Axion Group and Golden Corn Export USA.</p>
-        </div>
 
-        <div class="card" style="border-left-color: var(--red);">
-            <h2>High-Priority Technical Risks</h2>
-            <ul class="critical-list">
-                <li><strong>Axion Staging Exposure:</strong> Demo sites lack "Noindex" tags. Google is currently indexing unfinished pages, which damages our professional brand authority.</li>
-                <li><strong>Data Blindness:</strong> No Global Site Tags (GA4) are active. We cannot track lead origin or user behavior on the new platforms.</li>
-                <li><strong>Content Thinness:</strong> Average word count is ~200. B2B authority requires 800-1,200 words to compete globally.</li>
-            </ul>
-        </div>
+<header>
+    <h1>SEO PERFORMANCE AUDIT</h1>
+    <p style="margin:5px 0 0 0; font-size:11px; color:var(--gold); opacity: 0.8;">INTERNAL STRATEGY: MR. NAWRAS</p>
+</header>
 
-        <div class="status-grid">
-            <div class="status-item">
-                <span class="tag tag-red">Critical</span>
-                <p style="margin: 10px 0 0 0; font-weight: bold;">Axion Auto</p>
-                <small>Fix: Add Noindex</small>
+<div class="container">
+
+    <div class="card">
+        <h3>Asset Visibility Status</h3>
+        <table class="status-table">
+            <tr>
+                <td><strong>Axion Automobile</strong><br><small>Staging Environment</small></td>
+                <td style="text-align: right;"><span class="tag tag-warn">Index Risk: High</span></td>
+            </tr>
+            <tr>
+                <td><strong>Axion Agriculture</strong><br><small>Staging Environment</small></td>
+                <td style="text-align: right;"><span class="tag tag-warn">Index Risk: High</span></td>
+            </tr>
+            <tr>
+                <td><strong>Golden Corn Export</strong><br><small>Live Production</small></td>
+                <td style="text-align: right;"><span class="tag tag-ok">Optimizing</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card" style="border-left-color: var(--red);">
+        <h3>Critical Technical Fixes</h3>
+        <p style="font-size: 14px; margin-bottom: 5px;">Analysis of current backend infrastructure:</p>
+        <ul style="font-size: 13px; padding-left: 18px; color: #ccc;">
+            <li><b style="color:white;">Duplicate Content Danger:</b> Axion staging sites lack <code style="color:var(--gold);">noindex</code> tags. If Google crawls these, it will penalize our main brand authority.</li>
+            <li><b style="color:white;">Tracking Gap:</b> No Global Site Tags (GA4) detected on demo assets. We are currently "blind" to user behavior on these platforms.</li>
+            <li><b style="color:white;">Mobile Speed:</b> Current image assets are uncompressed, leading to slower load times on UAE mobile networks (5G/4G).</li>
+        </ul>
+    </div>
+
+    <div class="card" style="border-left-color: var(--blue);">
+        <h3>The Content Opportunity</h3>
+        <p style="font-size: 14px;">To rank in the <strong>Top 3 of Google UAE/Global</strong>, we must address the "Word Count Gap":</p>
+        <div class="highlight-box">
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                <span>Current Average:</span>
+                <span class="metric">~200 Words</span>
             </div>
-            <div class="status-item">
-                <span class="tag tag-red">Critical</span>
-                <p style="margin: 10px 0 0 0; font-weight: bold;">Axion Agri</p>
-                <small>Fix: Add Noindex</small>
+            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-top: 8px;">
+                <span>Target for B2B Authority:</span>
+                <span class="metric">850+ Words</span>
             </div>
-            <div class="status-item">
-                <span style="background:rgba(46,204,113,0.2); color:#2ecc71; border:1px solid #2ecc71;" class="tag">Live</span>
-                <p style="margin: 10px 0 0 0; font-weight: bold;">Golden Corn</p>
-                <small>Action: Content Scale</small>
-            </div>
+        </div>
+        <p style="font-size: 12px; color: #888; margin-top: 10px;">*Higher word counts correlate with 70% more backlinks and 3x more organic shares in industrial sectors.</p>
+    </div>
+
+    <div class="card" style="border-left-color: var(--green);">
+        <h3>SEO Roadmap: Next 60 Days</h3>
+        <div style="border-left: 1px solid #444; padding-left: 15px; margin-left: 5px;">
+            <p style="font-size: 14px; margin: 0 0 10px 0;"><strong style="color:var(--green);">Phase 1:</strong> Lockdown Staging sites & Secure GA4 Tracking.</p>
+            <p style="font-size: 14px; margin: 0 0 10px 0;"><strong style="color:var(--green);">Phase 2:</strong> Content expansion for Golden Corn (Targeting bulk export keywords).</p>
+            <p style="font-size: 14px; margin: 0;"><strong style="color:var(--green);">Phase 3:</strong> International SEO (Hreflang) to route traffic from Asia/Africa/Europe.</p>
         </div>
     </div>
+
+    <p style="text-align: center; font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 1px;">
+        Data Source: Internal Audit 2026 | Prepared by Taifour
+    </p>
+
+</div>
+
 </body>
 </html>
