@@ -19,7 +19,6 @@
             color: var(--text);
         }
         .app-wrapper { display: flex; flex-direction: column; height: 100vh; }
-
         header {
             padding: 20px 15px 10px;
             background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
@@ -45,11 +44,9 @@
             background: var(--gold); color: #000;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
-
         #content-area { flex-grow: 1; position: relative; overflow: hidden; }
         iframe { width: 100%; height: 100%; border: none; background: transparent; }
 
-        /* FIXED DOWNLOAD BUTTON */
         .fab-pdf {
             position: fixed; bottom: 30px; right: 20px;
             width: 56px; height: 56px;
@@ -57,7 +54,7 @@
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.6);
             cursor: pointer; z-index: 999; border: none;
-            transition: transform 0.2s;
+            transition: 0.2s;
         }
         .fab-pdf:active { transform: scale(0.9); }
     </style>
@@ -76,7 +73,7 @@
     </main>
 </div>
 
-<button class="fab-pdf" onclick="printReport()" title="Download PDF">
+<button class="fab-pdf" onclick="sendPrintMessage()" title="Download PDF">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
 </button>
 
@@ -87,18 +84,10 @@
         btn.classList.add('active');
     }
 
-    // Improved Print/PDF Function
-    function printReport() {
+    // This sends a "Signal" to the iframe to trigger its own print function
+    function sendPrintMessage() {
         const frame = document.getElementById('main-view');
-        const frameWindow = frame.contentWindow || frame.contentDocument.defaultView;
-        
-        try {
-            frame.focus();
-            frameWindow.print();
-        } catch (e) {
-            // Fallback for strict mobile browsers
-            window.print();
-        }
+        frame.contentWindow.postMessage('print', '*');
     }
 </script>
 </body>
