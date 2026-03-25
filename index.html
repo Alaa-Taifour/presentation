@@ -7,7 +7,6 @@
     <style>
         :root {
             --bg: #050505;
-            --card-bg: rgba(255, 255, 255, 0.03);
             --gold: linear-gradient(135deg, #d4af37 0%, #f1c40f 100%);
             --gold-solid: #d4af37;
             --border: rgba(212, 175, 55, 0.2);
@@ -16,69 +15,51 @@
         body, html {
             margin: 0; padding: 0; height: 100%; width: 100%;
             overflow: hidden; background: var(--bg);
-            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
             color: var(--text);
         }
         .app-wrapper { display: flex; flex-direction: column; height: 100vh; }
 
-        /* Premium Floating Nav */
         header {
             padding: 20px 15px 10px;
             background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
-            text-align: center;
-            z-index: 100;
+            text-align: center; z-index: 100;
         }
         .brand {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--gold-solid);
-            margin-bottom: 15px;
-            font-weight: 300;
+            font-size: 10px; text-transform: uppercase;
+            letter-spacing: 4px; color: var(--gold-solid);
+            margin-bottom: 15px; font-weight: 300;
         }
         .nav-container {
-            display: inline-flex;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 4px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            display: inline-flex; background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px); padding: 4px;
+            border-radius: 12px; border: 1px solid var(--border);
         }
         .nav-btn {
-            background: none; border: none;
-            color: rgba(255,255,255,0.5);
-            padding: 10px 20px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: none; border: none; color: rgba(255,255,255,0.5);
+            padding: 10px 20px; font-size: 11px; font-weight: 600;
+            text-transform: uppercase; cursor: pointer; border-radius: 8px;
+            transition: 0.3s;
         }
         .nav-btn.active {
-            background: var(--gold);
-            color: #000;
+            background: var(--gold); color: #000;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
-        /* Content Area */
-        #content-area { flex-grow: 1; position: relative; }
-        iframe {
-            width: 100%; height: 100%; border: none;
-            background: transparent;
-        }
+        #content-area { flex-grow: 1; position: relative; overflow: hidden; }
+        iframe { width: 100%; height: 100%; border: none; background: transparent; }
 
-        /* Floating PDF Action */
+        /* FIXED DOWNLOAD BUTTON */
         .fab-pdf {
             position: fixed; bottom: 30px; right: 20px;
-            width: 50px; height: 50px;
-            background: var(--gold);
-            border-radius: 50%;
+            width: 56px; height: 56px;
+            background: var(--gold); border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            cursor: pointer; z-index: 200;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            cursor: pointer; z-index: 999; border: none;
+            transition: transform 0.2s;
         }
+        .fab-pdf:active { transform: scale(0.9); }
     </style>
 </head>
 <body>
@@ -91,13 +72,13 @@
         </div>
     </header>
     <main id="content-area">
-        <iframe id="main-view" src="./seo_report.html"></iframe>
+        <iframe id="main-view" name="main-view" src="./seo_report.html"></iframe>
     </main>
 </div>
 
-<div class="fab-pdf" onclick="printReport()">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-</div>
+<button class="fab-pdf" onclick="printReport()" title="Download PDF">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+</button>
 
 <script>
     function loadPage(url, btn) {
@@ -105,9 +86,19 @@
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
     }
+
+    // Improved Print/PDF Function
     function printReport() {
-        window.frames["main-view"].focus();
-        window.frames["main-view"].print();
+        const frame = document.getElementById('main-view');
+        const frameWindow = frame.contentWindow || frame.contentDocument.defaultView;
+        
+        try {
+            frame.focus();
+            frameWindow.print();
+        } catch (e) {
+            // Fallback for strict mobile browsers
+            window.print();
+        }
     }
 </script>
 </body>
