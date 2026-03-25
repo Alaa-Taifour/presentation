@@ -3,64 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Executive Strategy Hub | Mr. Nawras</title>
+    <title>Executive Strategy Hub</title>
     <style>
         :root {
-            --black: #0a0a0a; --gold: #d4af37; --deep-blue: #0a1931; --text: #ffffff;
+            --bg: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --gold: linear-gradient(135deg, #d4af37 0%, #f1c40f 100%);
+            --gold-solid: #d4af37;
+            --border: rgba(212, 175, 55, 0.2);
+            --text: #ffffff;
         }
         body, html {
             margin: 0; padding: 0; height: 100%; width: 100%;
-            overflow: hidden; background: var(--black);
-            font-family: -apple-system, system-ui, sans-serif;
+            overflow: hidden; background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+            color: var(--text);
         }
-        .dashboard { display: flex; flex-direction: column; height: 100vh; }
-        nav {
-            height: 70px; min-height: 70px;
-            background: linear-gradient(to right, var(--deep-blue), var(--black));
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 15px; border-bottom: 2px solid var(--gold);
-            box-sizing: border-box; z-index: 10;
+        .app-wrapper { display: flex; flex-direction: column; height: 100vh; }
+
+        /* Premium Floating Nav */
+        header {
+            padding: 20px 15px 10px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            text-align: center;
+            z-index: 100;
         }
-        .nav-group { display: flex; gap: 8px; }
+        .brand {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--gold-solid);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        .nav-container {
+            display: inline-flex;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 4px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
         .nav-btn {
-            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(212, 175, 55, 0.3);
-            color: var(--text); padding: 8px 12px; cursor: pointer;
-            border-radius: 6px; font-size: 11px; text-transform: uppercase;
+            background: none; border: none;
+            color: rgba(255,255,255,0.5);
+            padding: 10px 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .nav-btn.active { background: var(--gold); color: #000; font-weight: bold; }
-        .pdf-btn {
-            background: transparent; border: 2px solid var(--gold);
-            color: var(--gold); padding: 8px 15px; border-radius: 50px;
-            font-size: 11px; font-weight: bold; text-transform: uppercase;
+        .nav-btn.active {
+            background: var(--gold);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
-        #content-area { flex-grow: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-        #view-container { width: 100%; height: 100%; border: none; display: block; }
+
+        /* Content Area */
+        #content-area { flex-grow: 1; position: relative; }
+        iframe {
+            width: 100%; height: 100%; border: none;
+            background: transparent;
+        }
+
+        /* Floating PDF Action */
+        .fab-pdf {
+            position: fixed; bottom: 30px; right: 20px;
+            width: 50px; height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            cursor: pointer; z-index: 200;
+        }
     </style>
 </head>
 <body>
-<div class="dashboard">
-    <nav>
-        <div class="nav-group">
-            <button class="nav-btn active" onclick="loadReport('./seo_report.html', this)">1. SEO Audit</button>
-            <button class="nav-btn" onclick="loadReport('./competitor_gap.html', this)">2. Competitor Gap</button>
+<div class="app-wrapper">
+    <header>
+        <div class="brand">Strategic Intelligence Report</div>
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="loadPage('./seo_report.html', this)">SEO Audit</button>
+            <button class="nav-btn" onclick="loadPage('./competitor_gap.html', this)">Competitor Gap</button>
         </div>
-        <button class="pdf-btn" onclick="downloadPDF()">PDF</button>
-    </nav>
-    <div id="content-area">
-        <iframe id="view-container" src="./seo_report.html"></iframe>
-    </div>
+    </header>
+    <main id="content-area">
+        <iframe id="main-view" src="./seo_report.html"></iframe>
+    </main>
 </div>
+
+<div class="fab-pdf" onclick="printReport()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+</div>
+
 <script>
-    function loadReport(url, btn) {
-        document.getElementById('view-container').src = url;
-        const btns = document.querySelectorAll('.nav-btn');
-        btns.forEach(b => b.classList.remove('active'));
+    function loadPage(url, btn) {
+        document.getElementById('main-view').src = url;
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
     }
-    function downloadPDF() {
-        const reportFrame = document.getElementById('view-container').contentWindow;
-        reportFrame.focus();
-        reportFrame.print();
+    function printReport() {
+        window.frames["main-view"].focus();
+        window.frames["main-view"].print();
     }
 </script>
 </body>
