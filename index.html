@@ -20,7 +20,7 @@
       color: #e5e7eb;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 0.75rem;
       border-bottom: 1px solid rgba(148, 163, 184, 0.35);
@@ -35,6 +35,13 @@
       margin: 0;
       font-size: 0.9rem;
       color: #9ca3af;
+    }
+
+    .kpi-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
     }
 
     .dashboard-main {
@@ -114,10 +121,30 @@
     <header class="dashboard-header">
       <div>
         <h1>SEO Strategy Dashboard</h1>
-        <p>Golden Corn Export USA · Axion Divisions · Prepared for Mr. Nawras. Presnted by Alaa Taifour</p>
+        <p>Golden Corn Export USA · Axion Divisions · Prepared for Alaa</p>
       </div>
-      <div>
+      <div class="kpi-section">
         <p>Goal: 50–100 qualified B2B quotes/month in 6–9 months</p>
+        <!-- Animated Traffic Growth Chart -->
+        <div class="chart-block">
+          <div class="chart-bars">
+            <div class="chart-bar">
+              <span class="chart-label">Now</span>
+              <div class="chart-bar-fill chart-bar-now" aria-label="Current traffic"></div>
+              <span class="chart-value">~1K</span>
+            </div>
+            <div class="chart-bar">
+              <span class="chart-label">Month 6</span>
+              <div class="chart-bar-fill chart-bar-mid" aria-label="6-month traffic"></div>
+              <span class="chart-value">8K–15K</span>
+            </div>
+            <div class="chart-bar">
+              <span class="chart-label">Month 12</span>
+              <div class="chart-bar-fill chart-bar-high" aria-label="12-month traffic"></div>
+              <span class="chart-value">25K+</span>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -126,7 +153,7 @@
       <section class="panel">
         <header class="panel-header">
           <h2>SEO Report</h2>
-          <span></span>
+          <span>index → seo_report.html</span>
         </header>
         <div class="panel-body">
           <iframe
@@ -141,7 +168,7 @@
       <section class="panel">
         <header class="panel-header">
           <h2>Competitor Gap & Roadmap</h2>
-          <span></span>
+          <span>index → competitor_gap.html</span>
         </header>
         <div class="panel-body">
           <iframe
