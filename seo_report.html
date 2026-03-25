@@ -3,100 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Strategy Audit - Mr. Nawras</title>
     <style>
-        :root {
-            --matte-black: #121212;
-            --dark-surface: #1e1e1e;
-            --gold: #d4af37;
-            --blue: #0a1931;
-            --green: #2ecc71;
-            --red: #e74c3c;
-            --text: #e0e0e0;
+        body {
+            background: #050505; color: #fff;
+            font-family: -apple-system, sans-serif;
+            margin: 0; padding: 20px; line-height: 1.6;
         }
-        body { font-family: -apple-system, sans-serif; background: var(--matte-black); color: var(--text); margin: 0; padding: 0; line-height: 1.5; }
-        header { background: linear-gradient(to right, var(--blue), var(--matte-black)); padding: 25px 20px; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; text-align: center; }
-        header h1 { font-size: 18px; margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
-        .container { padding: 15px; max-width: 600px; margin: 0 auto; }
-        .card { background: var(--dark-surface); border-radius: 12px; padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-        .card h3 { margin-top: 0; font-size: 16px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .status-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
-        .status-table td { padding: 12px 8px; border-bottom: 1px solid #2a2a2a; }
-        .status-table tr:last-child td { border: none; }
-        .tag { padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; text-transform: uppercase; }
-        .tag-warn { background: rgba(231, 76, 60, 0.2); color: var(--red); border: 1px solid var(--red); }
-        .tag-ok { background: rgba(46, 204, 113, 0.2); color: var(--green); border: 1px solid var(--green); }
-        .metric { color: var(--gold); font-weight: bold; }
-        .highlight-box { background: #252525; padding: 15px; border-radius: 8px; margin-top: 10px; border: 1px dashed #444; }
+        .container { max-width: 600px; margin: 0 auto; }
+        
+        /* Glass Card Style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        h2 {
+            font-size: 13px; text-transform: uppercase;
+            letter-spacing: 2px; color: #d4af37;
+            margin-bottom: 15px; border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            padding-bottom: 10px;
+        }
+
+        /* Modern Data Rows */
+        .data-row {
+            display: flex; justify-content: space-between;
+            padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .label { color: rgba(255,255,255,0.5); font-size: 12px; }
+        .value { font-weight: 500; font-size: 13px; color: #fff; }
+        .status-dot {
+            height: 8px; width: 8px; border-radius: 50%;
+            display: inline-block; margin-right: 5px;
+        }
+
+        /* Table Styling */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { text-align: left; font-size: 10px; color: rgba(255,255,255,0.3); text-transform: uppercase; padding-bottom: 10px; }
+        td { padding: 12px 0; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        @media print { body { background: white; color: black; } .glass-card { border: 1px solid #eee; } }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>SEO PERFORMANCE AUDIT</h1>
-    <p style="margin:5px 0 0 0; font-size:11px; color:var(--gold); opacity: 0.8;">INTERNAL STRATEGY: MR. NAWRAS</p>
-</header>
-
-<div class="container">
-
-    <div class="card">
-        <h3>Asset Visibility Status</h3>
-        <table class="status-table">
-            <tr>
-                <td><strong>Axion Automobile</strong><br><small>Staging Environment</small></td>
-                <td style="text-align: right;"><span class="tag tag-warn">Index Risk: High</span></td>
-            </tr>
-            <tr>
-                <td><strong>Axion Agriculture</strong><br><small>Staging Environment</small></td>
-                <td style="text-align: right;"><span class="tag tag-warn">Index Risk: High</span></td>
-            </tr>
-            <tr>
-                <td><strong>Golden Corn Export</strong><br><small>Live Production</small></td>
-                <td style="text-align: right;"><span class="tag tag-ok">Optimizing</span></td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="card" style="border-left-color: var(--red);">
-        <h3>Critical Technical Fixes</h3>
-        <p style="font-size: 14px; margin-bottom: 5px;">Analysis of current backend infrastructure:</p>
-        <ul style="font-size: 13px; padding-left: 18px; color: #ccc;">
-            <li><b style="color:white;">Duplicate Content Danger:</b> Axion staging sites lack <code style="color:var(--gold);">noindex</code> tags. If Google crawls these, it will penalize our main brand authority.</li>
-            <li><b style="color:white;">Tracking Gap:</b> No Global Site Tags (GA4) detected on demo assets. We are currently "blind" to user behavior on these platforms.</li>
-            <li><b style="color:white;">Mobile Speed:</b> Current image assets are uncompressed, leading to slower load times on UAE mobile networks (5G/4G).</li>
-        </ul>
-    </div>
-
-    <div class="card" style="border-left-color: var(--blue);">
-        <h3>The Content Opportunity</h3>
-        <p style="font-size: 14px;">To rank in the <strong>Top 3 of Google UAE/Global</strong>, we must address the "Word Count Gap":</p>
-        <div class="highlight-box">
-            <div style="display: flex; justify-content: space-between; font-size: 13px;">
-                <span>Current Average:</span>
-                <span class="metric">~200 Words</span>
+    <div class="container">
+        <div class="glass-card">
+            <h2>Asset Performance</h2>
+            <div class="data-row">
+                <span class="label">Axion Automobile</span>
+                <span class="value"><span class="status-dot" style="background:#e74c3c"></span> Staging Index Risk</span>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-top: 8px;">
-                <span>Target for B2B Authority:</span>
-                <span class="metric">850+ Words</span>
+            <div class="data-row">
+                <span class="label">Golden Corn Export</span>
+                <span class="value"><span class="status-dot" style="background:#2ecc71"></span> Active Optimization</span>
             </div>
         </div>
-        <p style="font-size: 12px; color: #888; margin-top: 10px;">*Higher word counts correlate with 70% more backlinks and 3x more organic shares in industrial sectors.</p>
     </div>
-
-    <div class="card" style="border-left-color: var(--green);">
-        <h3>SEO Roadmap: Next 60 Days</h3>
-        <div style="border-left: 1px solid #444; padding-left: 15px; margin-left: 5px;">
-            <p style="font-size: 14px; margin: 0 0 10px 0;"><strong style="color:var(--green);">Phase 1:</strong> Lockdown Staging sites & Secure GA4 Tracking.</p>
-            <p style="font-size: 14px; margin: 0 0 10px 0;"><strong style="color:var(--green);">Phase 2:</strong> Content expansion for Golden Corn (Targeting bulk export keywords).</p>
-            <p style="font-size: 14px; margin: 0;"><strong style="color:var(--green);">Phase 3:</strong> International SEO (Hreflang) to route traffic from Asia/Africa/Europe.</p>
-        </div>
-    </div>
-
-    <p style="text-align: center; font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 1px;">
-        Data Source: Internal Audit 2026 | Prepared by Taifour
-    </p>
-
-</div>
-
 </body>
 </html>
