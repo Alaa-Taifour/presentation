@@ -6,112 +6,132 @@
     <title>Executive Strategy Hub | Mr. Nawras</title>
     <style>
         :root {
-            --black: #0a0a0a;
-            --gold: #d4af37;
-            --deep-blue: #0a1931;
-            --text: #ffffff;
-            --btn-gray: rgba(255, 255, 255, 0.1);
+            --black: #0a0a0a; --surface: #1e1e1e; --gold: #d4af37;
+            --blue: #0a1931; --red: #ff4d4d; --green: #2ecc71; --text: #e0e0e0;
         }
-        body, html {
-            margin: 0; padding: 0; height: 100%; overflow: hidden;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: var(--black);
-        }
+        body, html { margin: 0; padding: 0; background: var(--black); color: var(--text); font-family: -apple-system, sans-serif; }
         
-        /* Navigation Bar */
+        /* Navigation */
         nav {
-            height: 70px;
-            background: linear-gradient(to right, var(--deep-blue), var(--black));
-            display: flex;
-            align-items: center;
-            justify-content: space-between; /* Spaced out for the PDF button */
-            padding: 0 20px;
-            border-bottom: 2px solid var(--gold);
-            z-index: 1000;
-            position: relative;
+            height: 70px; background: linear-gradient(to right, var(--blue), var(--black));
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 20px; border-bottom: 2px solid var(--gold);
+            position: sticky; top: 0; z-index: 1000;
         }
-
-        .nav-group { display: flex; gap: 10px; }
-
         .nav-btn {
-            background: var(--btn-gray);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: var(--text);
-            padding: 10px 18px;
-            cursor: pointer;
-            border-radius: 6px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.2s;
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(212,175,55,0.3);
+            color: #fff; padding: 10px 15px; cursor: pointer; border-radius: 6px; font-size: 12px; text-transform: uppercase;
         }
+        .nav-btn.active { background: var(--gold); color: #000; font-weight: bold; }
+        .pdf-btn { border: 2px solid var(--gold); color: var(--gold); background: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 12px; }
 
-        .nav-btn.active {
-            background: var(--gold);
-            color: #000;
-            border-color: var(--gold);
-            font-weight: bold;
-        }
+        /* Content Containers */
+        .container { padding: 20px; max-width: 800px; margin: 0 auto; display: none; }
+        .container.active { display: block; }
+        .card { background: var(--surface); border-radius: 12px; padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--gold); }
+        
+        /* Table Styling */
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+        th { text-align: left; color: #888; padding: 12px; border-bottom: 1px solid #333; text-transform: uppercase; font-size: 11px; }
+        td { padding: 12px; border-bottom: 1px solid #2a2a2a; }
+        
+        /* Indicators */
+        .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+        .bg-red { background: var(--red); box-shadow: 0 0 8px var(--red); }
+        .bg-green { background: var(--green); box-shadow: 0 0 8px var(--green); }
+        .bg-yellow { background: #f1c40f; box-shadow: 0 0 8px #f1c40f; }
 
-        /* The PDF Button Styling */
-        .pdf-btn {
-            background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 50px; /* Pill shape for importance */
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .pdf-btn:hover {
-            background: var(--gold);
-            color: #000;
-        }
-
-        /* Iframe */
-        #view-container {
-            width: 100%;
-            height: calc(100vh - 72px);
-            border: none;
-        }
-
-        /* Hide nav when printing so only the report shows */
-        @media print {
-            nav { display: none; }
-            #view-container { height: 100%; }
-        }
+        @media print { nav { display: none; } .container { display: block !important; color: black; background: white; } }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="nav-group">
-        <button class="nav-btn active" onclick="loadReport('seo_report.html', this)">1. SEO Audit</button>
-        <button class="nav-btn" onclick="loadReport('competitor_gap.html', this)">2. Competitor Gap</button>
+    <div style="display:flex; gap:10px;">
+        <button class="nav-btn active" onclick="showTab('audit', this)">1. SEO Audit</button>
+        <button class="nav-btn" onclick="showTab('gap', this)">2. Competitor Gap</button>
     </div>
-
-    <button class="pdf-btn" onclick="downloadPDF()">Download PDF</button>
+    <button class="pdf-btn" onclick="window.print()">Download PDF</button>
 </nav>
 
-<iframe id="view-container" src="seo_report.html"></iframe>
+<div id="audit" class="container active">
+    <div class="card">
+        <h2 style="color:var(--gold); margin-top:0;">Technical Asset Integrity</h2>
+        <p>Mr. Nawras, our primary risk is <strong>"Internal Competition."</strong> Because Axion Automobile and Agriculture are demo sites, they must be hidden from Google to protect our main domain authority.</p>
+    </div>
+
+    <div class="card" style="border-left-color: var(--red);">
+        <h3>Critical Technical Risks</h3>
+        <ul style="line-height:1.8;">
+            <li><span class="dot bg-red"></span><strong>No-Index Missing:</strong> Search engines are currently indexing demo content.</li>
+            <li><span class="dot bg-red"></span><strong>Sitemap Conflict:</strong> Demo pages are appearing in global searches, confusing B2B clients.</li>
+            <li><span class="dot bg-yellow"></span><strong>Tracking Gap:</strong> Zero data on how users navigate the Axion pages.</li>
+        </ul>
+    </div>
+</div>
+
+<div id="gap" class="container">
+    <div class="card">
+        <h2 style="color:var(--gold); margin-top:0;">Global Market Gap Analysis</h2>
+        <p>Comparison against Tier-1 B2B Exporters (Cargill, Al Ghurair, Louis Dreyfus).</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Metric</th><th>Our Status</th><th>Global Leader Avg</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Authority Content</strong></td>
+                        <td><span class="dot bg-red"></span> 200 Words</td>
+                        <td><span class="dot bg-green"></span> 1,500+ Words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Domain Trust (DA)</strong></td>
+                        <td><span class="dot bg-red"></span> Low (New)</td>
+                        <td><span class="dot bg-green"></span> High (70+)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Page Load Speed</strong></td>
+                        <td><span class="dot bg-yellow"></span> 3.8s (Avg)</td>
+                        <td><span class="dot bg-green"></span> 1.2s (Optimized)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Organic Reach</strong></td>
+                        <td><span class="dot bg-red"></span> Local Only</td>
+                        <td><span class="dot bg-green"></span> Multi-Regional</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Technical Schema</strong></td>
+                        <td><span class="dot bg-red"></span> Missing</td>
+                        <td><span class="dot bg-green"></span> Organization & Product JSON-LD</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Security (SSL)</strong></td>
+                        <td><span class="dot bg-green"></span> Active</td>
+                        <td><span class="dot bg-green"></span> Active + HSTS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card" style="border-left-color: var(--green);">
+        <h3>Strategic Opportunity</h3>
+        <p>The "Green Dots" above represent millions in missed B2B inquiries. By moving our content from 200 to 1,500 words and implementing <strong>Technical Schema</strong>, we can bypass mid-level competitors within 6 months.</p>
+    </div>
+</div>
 
 <script>
-    function loadReport(url, btn) {
-        document.getElementById('view-container').src = url;
-        const btns = document.querySelectorAll('.nav-btn');
-        btns.forEach(b => b.classList.remove('active'));
+    function showTab(tabId, btn) {
+        // Hide all containers
+        document.querySelectorAll('.container').forEach(c => c.classList.remove('active'));
+        // Show selected container
+        document.getElementById(tabId).classList.add('active');
+        // Update buttons
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-    }
-
-    function downloadPDF() {
-        // This triggers the print function for the iframe specifically
-        const reportFrame = document.getElementById('view-container').contentWindow;
-        reportFrame.focus();
-        reportFrame.print();
     }
 </script>
 
