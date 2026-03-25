@@ -4,178 +4,77 @@
   <meta charset="UTF-8">
   <title>SEO Strategy Dashboard | Golden Corn Export USA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Two-panel dashboard showing the SEO report and competitor gap analysis for Golden Corn Export USA.">
+  <meta name="description" content="Professional SEO Dashboard for Golden Corn Export USA & Axion Divisions">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Layout for two windows */
-    .dashboard-shell {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background-color: #020617;
+    .window {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+      transition: all 0.3s ease;
     }
-
-    .dashboard-header {
-      padding: 1.2rem 1.2rem 0.8rem;
-      color: #e5e7eb;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 0.75rem;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-    }
-
-    .dashboard-header h1 {
-      font-size: 1.3rem;
-      margin: 0;
-    }
-
-    .dashboard-header p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-
-    .kpi-section {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.5rem;
-    }
-
-    .dashboard-main {
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      border-top: 1px solid rgba(15, 23, 42, 0.9);
-    }
-
-    .panel {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      border-right: 1px solid rgba(15, 23, 42, 0.9);
-    }
-
-    .panel:last-child {
-      border-right: none;
-    }
-
-    .panel-header {
-      padding: 0.7rem 1rem;
-      background: #020617;
-      color: #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
-    }
-
-    .panel-header h2 {
-      font-size: 0.95rem;
-      margin: 0;
-    }
-
-    .panel-header span {
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    .panel-body {
-      flex: 1;
-      background: #0b1120;
-    }
-
-    .panel-iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    @media (max-width: 768px) {
-      .dashboard-main {
-        flex-direction: column;
-      }
-
-      .panel {
-        border-right: none;
-        border-bottom: 1px solid rgba(15, 23, 42, 0.9);
-        height: 50vh;
-      }
-
-      .panel:last-child {
-        border-bottom: none;
-      }
-
-      .panel-header h2 {
-        font-size: 0.9rem;
-      }
+    .window:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 35px 60px -15px rgb(0 0 0 / 0.5);
     }
   </style>
 </head>
 <body>
 
   <div class="dashboard-shell">
+    <!-- Header -->
     <header class="dashboard-header">
-      <div>
-        <h1>SEO Strategy Dashboard</h1>
-        <p>Golden Corn Export USA · Axion Divisions · Prepared for Alaa</p>
+      <div class="header-content">
+        <h1>Golden Corn Export USA</h1>
+        <p class="subtitle">SEO Strategy Dashboard • Axion Divisions • March 2026</p>
       </div>
+      
       <div class="kpi-section">
-        <p>Goal: 50–100 qualified B2B quotes/month in 6–9 months</p>
-        <!-- Animated Traffic Growth Chart -->
+        <p class="goal">🎯 Goal: 50–100 qualified B2B quotes/month in 6–9 months</p>
+        
         <div class="chart-block">
           <div class="chart-bars">
             <div class="chart-bar">
-              <span class="chart-label">Now</span>
-              <div class="chart-bar-fill chart-bar-now" aria-label="Current traffic"></div>
-              <span class="chart-value">~1K</span>
+              <span class="chart-label">NOW</span>
+              <div class="chart-bar-fill chart-bar-now"></div>
+              <span class="chart-value">\~800</span>
             </div>
             <div class="chart-bar">
-              <span class="chart-label">Month 6</span>
-              <div class="chart-bar-fill chart-bar-mid" aria-label="6-month traffic"></div>
-              <span class="chart-value">8K–15K</span>
+              <span class="chart-label">MONTH 6</span>
+              <div class="chart-bar-fill chart-bar-mid"></div>
+              <span class="chart-value">12K</span>
             </div>
             <div class="chart-bar">
-              <span class="chart-label">Month 12</span>
-              <div class="chart-bar-fill chart-bar-high" aria-label="12-month traffic"></div>
-              <span class="chart-value">25K+</span>
+              <span class="chart-label">MONTH 12</span>
+              <div class="chart-bar-fill chart-bar-high"></div>
+              <span class="chart-value">28K+</span>
             </div>
           </div>
         </div>
       </div>
     </header>
 
+    <!-- Two Professional Windows -->
     <main class="dashboard-main">
-      <!-- Left Panel: SEO Report -->
-      <section class="panel">
+      <!-- LEFT WINDOW: SEO Report -->
+      <section class="panel window">
         <header class="panel-header">
-          <h2>SEO Report</h2>
-          <span>index → seo_report.html</span>
+          <h2>📊 SEO Analytics &amp; Optimization Report</h2>
+          <span>seo_report.html</span>
         </header>
         <div class="panel-body">
-          <iframe
-            src="seo_report.html"
-            class="panel-iframe"
-            title="SEO Report">
-          </iframe>
+          <iframe src="seo_report.html" class="panel-iframe" title="SEO Report"></iframe>
         </div>
       </section>
 
-      <!-- Right Panel: Competitor / Gap Analysis -->
-      <section class="panel">
+      <!-- RIGHT WINDOW: Competitor Gap & Roadmap -->
+      <section class="panel window">
         <header class="panel-header">
-          <h2>Competitor Gap & Roadmap</h2>
-          <span>index → competitor_gap.html</span>
+          <h2>📋 Competitor Gap &amp; 90-Day Roadmap</h2>
+          <span>competitor_gap.html</span>
         </header>
         <div class="panel-body">
-          <iframe
-            src="competitor_gap.html"
-            class="panel-iframe"
-            title="Competitor Gap Analysis">
-          </iframe>
+          <iframe src="competitor_gap.html" class="panel-iframe" title="Competitor Gap Analysis"></iframe>
         </div>
       </section>
     </main>
