@@ -4,62 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        :root {
+            --bg: #050505;
+            --glass: rgba(255, 255, 255, 0.03);
+            --gold: #d4af37;
+            --red: #ff4d4d;
+            --green: #2ecc71;
+            --border: rgba(212, 175, 55, 0.15);
+        }
         body {
-            background: #050505; color: #fff;
-            font-family: -apple-system, sans-serif;
+            background: var(--bg); color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
             margin: 0; padding: 20px; line-height: 1.6;
         }
         .container { max-width: 600px; margin: 0 auto; }
         
-        /* Glass Card Style */
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
             padding: 24px;
             margin-bottom: 20px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
         
         h2 {
-            font-size: 13px; text-transform: uppercase;
-            letter-spacing: 2px; color: #d4af37;
-            margin-bottom: 15px; border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            padding-bottom: 10px;
+            font-size: 11px; text-transform: uppercase;
+            letter-spacing: 3px; color: var(--gold);
+            margin: 0 0 20px 0; border-bottom: 1px solid var(--border);
+            padding-bottom: 10px; opacity: 0.8;
         }
 
-        /* Modern Data Rows */
-        .data-row {
-            display: flex; justify-content: space-between;
-            padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+        .metric-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .label { color: rgba(255,255,255,0.5); font-size: 12px; }
-        .value { font-weight: 500; font-size: 13px; color: #fff; }
-        .status-dot {
-            height: 8px; width: 8px; border-radius: 50%;
-            display: inline-block; margin-right: 5px;
+        .metric-row:last-child { border: none; }
+        
+        .label { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
+        .value { font-size: 14px; font-weight: 600; }
+        
+        .status-pill {
+            padding: 4px 10px; border-radius: 20px; font-size: 10px;
+            font-weight: 800; text-transform: uppercase;
         }
+        .urgent { background: rgba(255, 77, 77, 0.1); color: var(--red); border: 1px solid var(--red); }
+        .stable { background: rgba(46, 204, 113, 0.1); color: var(--green); border: 1px solid var(--green); }
 
-        /* Table Styling */
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th { text-align: left; font-size: 10px; color: rgba(255,255,255,0.3); text-transform: uppercase; padding-bottom: 10px; }
-        td { padding: 12px 0; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-
-        @media print { body { background: white; color: black; } .glass-card { border: 1px solid #eee; } }
+        .analysis-text { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 10px; }
+        b { color: #fff; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="glass-card">
-            <h2>Asset Performance</h2>
-            <div class="data-row">
-                <span class="label">Axion Automobile</span>
-                <span class="value"><span class="status-dot" style="background:#e74c3c"></span> Staging Index Risk</span>
+            <h2>Technical Integrity & Risk</h2>
+            
+            <div class="metric-row">
+                <span class="label">Axion Staging Health</span>
+                <span class="status-pill urgent">Critical Risk</span>
             </div>
-            <div class="data-row">
-                <span class="label">Golden Corn Export</span>
-                <span class="value"><span class="status-dot" style="background:#2ecc71"></span> Active Optimization</span>
+            <p class="analysis-text">
+                <b>Issue:</b> Staging sites for Axion Automobile and Agriculture are currently <b>publicly indexable</b>. <br><br>
+                <b>Impact:</b> Google identifies these as "Duplicate Content," which can trigger a <b>40%–60% ranking penalty</b> on our primary production domains. Immediate <code>noindex</code> implementation is required.
+            </p>
+
+            <div class="metric-row">
+                <span class="label">Golden Corn Analytics</span>
+                <span class="status-pill urgent">Data Blind</span>
             </div>
+            <p class="analysis-text">
+                <b>Observation:</b> Zero Global Site Tag (GA4) traffic recorded for last 30 days. We are unable to track lead conversion paths or geographic interest from bulk importers.
+            </p>
+        </div>
+
+        <div class="glass-card">
+            <h2>Search Visibility Baseline</h2>
+            
+            <div class="metric-row">
+                <span class="label">Avg. Content Depth</span>
+                <span class="value" style="color:var(--red);">220 Words</span>
+            </div>
+            <div class="metric-row">
+                <span class="label">Keyword Coverage</span>
+                <span class="value">9.4% (Industry Avg: 45%)</span>
+            </div>
+            <div class="metric-row">
+                <span class="label">Mobile Performance</span>
+                <span class="status-pill stable">Optimal</span>
+            </div>
+
+            <p class="analysis-text" style="margin-top:20px; padding:15px; background:rgba(212,175,55,0.05); border-radius:10px; border-left:3px solid var(--gold);">
+                <b>Strategic Edge:</b> While technical health is low, our <b>Mobile Core Web Vitals</b> are strong. Correcting the content "thinness" (targeting 1,200+ words) will allow us to outrank established competitors who are slower on mobile devices.
+            </p>
         </div>
     </div>
 </body>
