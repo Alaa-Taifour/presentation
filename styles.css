@@ -313,3 +313,76 @@ code {
     padding: 2rem 1.2rem 2.8rem;
   }
 }
+
+.chart-block {
+  margin-top: 1.8rem;
+}
+
+.chart-block h3 {
+  margin-bottom: 0.9rem;
+}
+
+.chart-bars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.chart-bar {
+  background-color: #020617;
+  border-radius: 0.75rem;
+  padding: 0.8rem 0.9rem 0.9rem;
+  color: #e5e7eb;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.45);
+}
+
+.section-light .chart-bar {
+  background-color: #0f172a;
+}
+
+.chart-label {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.chart-bar-fill {
+  position: relative;
+  margin-top: 0.45rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  overflow: hidden;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: bar-grow 1.6s ease-out forwards;
+}
+
+.chart-bar-now {
+  width: 20%;
+}
+
+.chart-bar-mid {
+  width: 60%;
+  animation-delay: 0.15s;
+}
+
+.chart-bar-high {
+  width: 95%;
+  animation-delay: 0.3s;
+}
+
+.chart-value {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: #e5e7eb;
+}
+
+.section-light .chart-value {
+  color: #e5e7eb;
+}
+
+@keyframes bar-grow {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
