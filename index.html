@@ -3,250 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Optimization Report - Axion & Golden Corn</title>
+    <title>Executive Optimization Audit - Mr. Nawras</title>
     <style>
         :root {
-            /* Premium Tech-Focused Palette */
             --matte-black: #121212;
             --dark-surface: #1e1e1e;
-            --deep-blue: #0a1931;
-            --gold-foil: #d4af37;
-            --accent-green: #2ecc71;
-            --danger-red: #e74c3c;
-            --text-light: #e0e0e0;
-            --text-white: #ffffff;
+            --gold: #d4af37;
+            --blue: #0a1931;
+            --green: #2ecc71;
+            --red: #e74c3c;
+            --text: #e0e0e0;
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #333; /* Dark background for screen viewing */
-            color: var(--text-light);
-        }
-        /* Page Container */
-        .page {
-            width: 1122px; /* A4 Landscape width approx */
-            height: 793px; /* A4 Landscape height approx */
-            margin: 20px auto;
-            background: var(--matte-black);
-            position: relative;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            overflow: hidden;
-            box-sizing: border-box;
-            page-break-after: always;
-            border-left: 8px solid var(--gold-foil);
-        }
-        
-        /* Header styling used across most pages */
-        .page-header {
-            background: linear-gradient(135deg, var(--deep-blue), var(--matte-black));
-            color: var(--text-white);
-            padding: 30px 50px;
-            border-bottom: 2px solid var(--gold-foil);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .page-header h1 { margin: 0; font-size: 32px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; }
-        .page-header .meta { text-align: right; font-size: 14px; color: var(--gold-foil); text-transform: uppercase; letter-spacing: 1px; }
-        
-        /* Content Area */
-        .content { padding: 40px 50px; }
-        
-        /* Cover Page Specifics */
-        .cover-page {
-            background: radial-gradient(circle at center, var(--dark-surface), var(--matte-black));
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 80px;
-        }
-        .cover-page h1 { font-size: 64px; color: var(--text-white); margin: 0 0 10px 0; letter-spacing: 2px; text-transform: uppercase; }
-        .cover-page h2 { font-size: 28px; color: var(--gold-foil); margin: 0 0 50px 0; font-weight: 400; }
-        .report-meta { margin-top: auto; border-top: 1px solid #333; padding-top: 20px; display: flex; justify-content: space-between; }
-        .report-meta div { font-size: 18px; }
-        .report-meta strong { color: var(--gold-foil); display: block; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        
-        .logos { display: flex; gap: 30px; margin-top: 40px; }
-        .logos span { font-size: 22px; font-weight: bold; color: var(--text-white); padding: 15px 25px; border: 1px solid #333; background: var(--dark-surface); border-radius: 4px; }
-        .logos .agri { border-bottom: 3px solid var(--accent-green); }
-        .logos .corn { border-bottom: 3px solid var(--gold-foil); }
-        .logos .auto { border-bottom: 3px solid #3498db; }
-
-        /* Tables & Grid Layouts */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-        
-        .card { background: var(--dark-surface); border-radius: 4px; padding: 25px; border-top: 2px solid #444; }
-        .card h3 { margin-top: 0; color: var(--text-white); font-weight: 500; letter-spacing: 1px; }
-        
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: var(--dark-surface); }
-        th { background: var(--deep-blue); color: var(--gold-foil); padding: 18px; text-align: left; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
-        td { padding: 18px; border-bottom: 1px solid #333; color: var(--text-light); }
-        .traffic-low { color: var(--danger-red); font-weight: bold; }
-        .traffic-high { color: var(--accent-green); font-weight: bold; }
-
-        /* Lists */
-        ul.custom-list { list-style: none; padding: 0; margin: 0; }
-        ul.custom-list li { padding: 15px 0; border-bottom: 1px solid #333; font-size: 18px; display: flex; align-items: flex-start; }
-        ul.custom-list li::before { content: '■'; color: var(--gold-foil); margin-right: 15px; font-size: 12px; margin-top: 6px; }
-
-        /* Print Specifics */
-        @media print {
-            body { background: none; }
-            .page { margin: 0; box-shadow: none; }
-        }
+        body { font-family: -apple-system, sans-serif; background: var(--matte-black); color: var(--text); margin: 0; padding: 0; }
+        header { background: linear-gradient(to right, var(--blue), var(--matte-black)); padding: 25px 20px; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
+        header h1 { font-size: 20px; margin: 0; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
+        .container { padding: 15px; max-width: 600px; margin: 0 auto; }
+        .card { background: var(--dark-surface); border-radius: 12px; padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--gold); }
+        .card h3 { margin-top: 0; font-size: 18px; color: var(--gold); text-transform: uppercase; }
+        .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .kpi-item { background: #252525; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #333; }
+        .kpi-item span { display: block; font-size: 22px; font-weight: bold; color: var(--gold); }
+        .kpi-item label { font-size: 10px; text-transform: uppercase; color: #888; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+        .data-table th { text-align: left; color: #888; padding: 8px; border-bottom: 1px solid #333; }
+        .data-table td { padding: 12px 8px; border-bottom: 1px solid #2a2a2a; }
+        .btn { background: var(--gold); color: #000; padding: 15px; border-radius: 8px; text-decoration: none; font-weight: bold; display: block; text-align: center; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-    <div class="page cover-page">
-        <h2>Confidential Internal Audit</h2>
-        <h1>Digital Asset Optimization Report</h1>
-        <div class="logos">
-            <span class="auto">AXION AUTOMOBILE</span>
-            <span class="agri">AXION AGRICULTURE</span>
-            <span class="corn">GOLDEN CORN EXPORT</span>
-        </div>
-        <div class="report-meta">
-            <div>
-                <strong>Prepared For</strong>
-                Mr. Nawras<br>Company Owner
-            </div>
-            <div>
-                <strong>Prepared By</strong>
-                Taifour<br>Digital Strategy Lead
-            </div>
-            <div>
-                <strong>Focus</strong>
-                Analytics, SEO & Growth Roadmap
-            </div>
-        </div>
+<header>
+    <h1>Growth Audit 2026</h1>
+    <p style="margin:5px 0 0 0; font-size:12px; color:var(--gold);">PREPARED FOR: MR. NAWRAS</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h3>1. The "Invisible" Risk</h3>
+        <p style="font-size:14px; color:#bbb;">Our Axion staging (demo) sites currently have <strong>High Risk</strong> of being indexed by Google. If indexed, they will compete with our main sites, causing a "Duplicate Content Penalty" that could drop our rankings by 50% or more.</p>
     </div>
 
-    <div class="page">
-        <div class="page-header">
-            <h1>Executive Summary & Status</h1>
-            <div class="meta">Section 01 // Overview</div>
-        </div>
-        <div class="content grid-2">
-            <div class="card">
-                <h3 style="color: var(--gold-foil);">Objective</h3>
-                <p style="font-size: 18px; line-height: 1.6;">Mr. Nawras, this report outlines the critical optimization requirements for our three primary digital assets. The immediate goal is to secure our staging environments from search engine indexing and rapidly scale the commercial traffic for Golden Corn Export USA.</p>
+    <div class="card" style="border-left-color: var(--blue);">
+        <h3>2. Competitive ROI Targets</h3>
+        <div class="kpi-grid">
+            <div class="kpi-item">
+                <span>748%</span>
+                <label>Avg B2B SEO ROI</label>
             </div>
-            <div class="card" style="border-top-color: var(--danger-red);">
-                <h3 style="color: var(--danger-red);">Critical Vulnerabilities Identified</h3>
-                <ul class="custom-list" style="font-size: 16px;">
-                    <li><strong>Demo Indexing:</strong> Axion Automobile & Agriculture staging sites are currently lacking 'Noindex' tags, risking severe duplicate content penalties.</li>
-                    <li><strong>Data Blindness:</strong> No analytics infrastructure installed across demo sites.</li>
-                    <li><strong>Thin Content:</strong> Pages averaging 120-250 words, far below the B2B industry standard of 800+ words.</li>
-                </ul>
+            <div class="kpi-item">
+                <span>14.6%</span>
+                <label>Lead Close Rate</label>
+            </div>
+            <div class="kpi-item">
+                <span>53%</span>
+                <label>Avg Organic Traffic</label>
+            </div>
+            <div class="kpi-item">
+                <span>9.5 Mo</span>
+                <label>Breakeven Point</label>
             </div>
         </div>
+        <p style="font-size:11px; color:#666; margin-top:10px;">*Source: 2026 Industry Benchmarks for Industrial/B2B sectors.</p>
     </div>
 
-    <div class="page">
-        <div class="page-header">
-            <h1>Digital Asset Audit</h1>
-            <div class="meta">Section 02 // Performance Baseline</div>
-        </div>
-        <div class="content">
-            <table>
-                <tr>
-                    <th>Metric / Asset</th>
-                    <th>Axion Automobile</th>
-                    <th>Axion Agriculture</th>
-                    <th style="color: var(--text-white); background: var(--matte-black);">Golden Corn Export USA</th>
-                </tr>
-                <tr>
-                    <td><strong>Environment Status</strong></td>
-                    <td>Demo / Staging</td>
-                    <td>Demo / Staging</td>
-                    <td style="color: var(--accent-green);">Live Production</td>
-                </tr>
-                <tr>
-                    <td><strong>Content Density</strong></td>
-                    <td>120 Words (Critical)</td>
-                    <td>250 Words (Critical)</td>
-                    <td>250 Words (Needs Expansion)</td>
-                </tr>
-                <tr>
-                    <td><strong>Est. Monthly Traffic</strong></td>
-                    <td class="traffic-low">< 100 Visits</td>
-                    <td class="traffic-low">< 100 Visits</td>
-                    <td class="traffic-high">500 - 1,000 Visits</td>
-                </tr>
-                <tr>
-                    <td><strong>SEO Infrastructure</strong></td>
-                    <td>0 Keywords / No Meta Tags</td>
-                    <td>0 Keywords / No Meta Tags</td>
-                    <td>Minimal Keywords / Missing Alts</td>
-                </tr>
-                <tr>
-                    <td><strong>Immediate Directive</strong></td>
-                    <td style="color: var(--danger-red);">Implement Noindex</td>
-                    <td style="color: var(--danger-red);">Implement Noindex</td>
-                    <td style="color: var(--gold-foil); font-weight: bold;">Initiate Full SEO Campaign</td>
-                </tr>
-            </table>
-        </div>
+    <div class="card">
+        <h3>3. UAE Market Cost Estimates</h3>
+        <table class="data-table">
+            <tr><th>Service Phase</th><th>Est. Cost (AED/Mo)</th></tr>
+            <tr><td>Standard SEO (Keywords/Content)</td><td>4,000 - 8,000</td></tr>
+            <tr><td>Premium/Intl SEO (Authority links)</td><td>10,000 - 15,000</td></tr>
+            <tr><td>One-time GA4/Tech Setup</td><td>2,500 - 5,000</td></tr>
+        </table>
     </div>
 
-    <div class="page">
-        <div class="page-header">
-            <h1>90-Day Strategic Roadmap</h1>
-            <div class="meta">Section 03 // Execution Plan</div>
-        </div>
-        <div class="content grid-2">
-            <div class="card" style="border-top-color: var(--gold-foil);">
-                <h3>Phase 1: Foundation (Weeks 1-4)</h3>
-                <ul class="custom-list">
-                    <li>Lock down Axion demo sites with technical SEO (robots.txt, Noindex).</li>
-                    <li>Deploy GA4 across all properties to capture accurate lead data.</li>
-                    <li>Conduct full keyword mapping for Golden Corn USA (Targeting UAE, Saudi Arabia, Africa, Europe, Asia).</li>
-                </ul>
-            </div>
-            <div class="card" style="border-top-color: var(--accent-green);">
-                <h3>Phase 2: Growth (Weeks 5-12)</h3>
-                <ul class="custom-list">
-                    <li>Expand Golden Corn content to establish industry authority.</li>
-                    <li>Launch international SEO tagging (Hreflang) for global B2B routing.</li>
-                    <li>Initiate off-page digital PR and backlink acquisition to drive domain authority.</li>
-                </ul>
-            </div>
-        </div>
+    <div class="card" style="border-left-color: var(--green);">
+        <h3>4. Next Steps</h3>
+        <ul style="font-size:14px; padding-left:15px; color:#ccc;">
+            <li><strong>Immediate:</strong> Deploy 'Noindex' tags to protect Axion brand assets.</li>
+            <li><strong>Month 1:</strong> Setup GA4 for Golden Corn to capture 100% of lead data.</li>
+            <li><strong>Month 2-3:</strong> Expand Golden Corn content to 800+ words/page for Page 1 ranking.</li>
+        </ul>
     </div>
 
-    <div class="page">
-        <div class="page-header">
-            <h1>Projected ROI & Next Steps</h1>
-            <div class="meta">Section 04 // Approval</div>
-        </div>
-        <div class="content">
-            <div class="grid-3" style="margin-bottom: 40px;">
-                <div class="card" style="text-align:center; border-top-color: var(--accent-green);">
-                    <h2 style="font-size: 48px; margin: 10px 0; color: var(--accent-green);">+150%</h2>
-                    <p style="text-transform: uppercase; font-size: 14px; letter-spacing: 1px;">Projected Traffic Growth<br>(Golden Corn)</p>
-                </div>
-                <div class="card" style="text-align:center; border-top-color: var(--gold-foil);">
-                    <h2 style="font-size: 48px; margin: 10px 0; color: var(--gold-foil);">Page 1</h2>
-                    <p style="text-transform: uppercase; font-size: 14px; letter-spacing: 1px;">Target Keyword<br>Rankings</p>
-                </div>
-                <div class="card" style="text-align:center; border-top-color: #3498db;">
-                    <h2 style="font-size: 48px; margin: 10px 0; color: #3498db;">+40%</h2>
-                    <p style="text-transform: uppercase; font-size: 14px; letter-spacing: 1px;">Increase in Qualified<br>B2B Inquiries</p>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Required Actions for Approval</h3>
-                <ul class="custom-list">
-                    <li>Review and approve the attached 90-day budget allocation.</li>
-                    <li>Authorize technical team to grant CMS and hosting access.</li>
-                    <li><strong>Sign-off to begin Phase 1 deployment immediately.</strong></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="btn">CONFIRM BUDGET & START</a>
+</div>
 
 </body>
 </html>
