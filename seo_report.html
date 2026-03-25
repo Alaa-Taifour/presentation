@@ -1,74 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        :root {
-            --bg: #050505; --glass: rgba(255, 255, 255, 0.03); --gold: #d4af37;
-            --red: #ff4d4d; --green: #2ecc71; --border: rgba(212, 175, 55, 0.15);
-        }
-        body { background: var(--bg); color: #fff; font-family: -apple-system, sans-serif; margin: 0; padding: 20px; }
-        .container { max-width: 650px; margin: 0 auto; }
-        .glass-card {
-            background: var(--glass); border: 1px solid var(--border);
-            border-radius: 20px; padding: 24px; margin-bottom: 20px; backdrop-filter: blur(10px);
-        }
-        h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin: 0 0 20px; }
-        .metric-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .label { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; }
-        .status { font-size: 11px; font-weight: bold; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; }
-        .urgent { background: rgba(255,77,77,0.1); color: var(--red); border: 1px solid var(--red); }
-        .stable { background: rgba(46,204,113,0.1); color: var(--green); border: 1px solid var(--green); }
-        .alert-box { background: rgba(212,175,55,0.05); border-left: 3px solid var(--gold); padding: 15px; margin-top: 15px; font-size: 13px; }
-    </style>
+  <meta charset="UTF-8">
+  <title>SEO Analytics & Optimization Report | Golden Corn Export USA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed analytics review and 12‑month SEO strategy for Golden Corn Export USA and Axion demo environments.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="glass-card">
-            <h2>Current Digital Baseline (March 2026)</h2>
-            <div class="metric-row">
-                <span class="label">Golden Corn (Live)</span>
-                <span class="value">500 – 1,000 Visits/Mo</span>
-            </div>
-            <div class="metric-row">
-                <span class="label">Axion Automobile (Demo)</span>
-                <span class="value" style="color:var(--red);">&lt;100 Visits/Mo</span>
-            </div>
-            <div class="metric-row">
-                <span class="label">Axion Agriculture (Demo)</span>
-                <span class="value" style="color:var(--red);">&lt;100 Visits/Mo</span>
-            </div>
-        </div>
 
-        <div class="glass-card">
-            <h2>Critical Technical Gaps</h2>
-            <div class="metric-row">
-                <span class="label">Meta Titles & Descriptions</span>
-                <span class="status urgent">Missing</span>
-            </div>
-            <div class="metric-row">
-                <span class="label">Image Alt-Text (SEO)</span>
-                <span class="status urgent">Missing</span>
-            </div>
-            <div class="metric-row">
-                <span class="label">Analytics Tracking (GA4)</span>
-                <span class="status urgent">Not Installed</span>
-            </div>
-            <div class="alert-box">
-                <b>Executive Note:</b> The "Thin Content" (120-250 words) is the primary barrier to B2B leads. Google requires 1,500+ words to rank for bulk export queries.
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+  <article class="report">
+    <header class="report-header">
+      <h1>SEO Analytics & Optimization Report</h1>
+      <p class="report-meta">
+        For: Axion Automobile · Axion Agriculture · Golden Corn Export USA<br>
+        Date: March 25, 2026 · Prepared for: Alaa
+      </p>
+    </header>
 
-<script>
-    // This allows the parent window to trigger the print dialog inside this frame
-    window.addEventListener('message', function(event) {
-        if (event.data === 'print') {
-            window.print();
-        }
-    });
-</script>
+    <!-- Executive Summary -->
+    <section>
+      <h2>Executive Summary</h2>
+      <p>
+        Golden Corn Export USA and its Axion demo counterparts currently operate with limited
+        organic visibility, thin content, and no analytics tracking. This report outlines a
+        12‑month SEO strategy designed to transform low‑traffic pages into a B2B export
+        acquisition engine generating 50–100 qualified quote requests per month within 6–9 months.
+      </p>
+      <p>
+        The core recommendation is to focus 80% of SEO effort on Golden Corn Export USA, while
+        keeping Axion Automobile and Axion Agriculture as <strong>noindex</strong> staging
+        environments. The strategy is built around three pillars: on‑page and content expansion,
+        technical optimization and analytics, and off‑page plus international SEO.
+      </p>
+    </section>
 
+    <!-- Current Analytics Overview -->
+    <section>
+      <h2>Current Analytics Overview (March 2026)</h2>
+      <h3>Axion Automobile (Demo)</h3>
+      <ul>
+        <li>Site Type: Demo / staging template for vehicle trading</li>
+        <li>Content: Approximately 120 words</li>
+        <li>Traffic: Estimated &lt;100 visits per month</li>
+        <li>Organic Keywords: 0; no backlinks</li>
+        <li>Technical: No meta tags, no structured analytics in place</li>
+      </ul>
+
+      <h3>Axion Agriculture (Demo)</h3>
+      <ul>
+        <li>Site Type: Demo / staging template for agri commodities and machinery</li>
+        <li>Content: Approximately 250 words</li>
+        <li>Traffic: Estimated &lt;100 visits per month</li>
+        <li>Organic Keywords: 0; no backlinks</li>
+        <li>Technical: No meta tags, no images with alt text, no analytics</li>
+      </ul>
+
+      <h3>Golden Corn Export USA (/products/)</h3>
+      <ul>
+        <li>Site Type: Live production page for yellow corn and feed ingredients</li>
+        <li>Content: Approximately 250 words, primarily high-level descriptions</li>
+        <li>Traffic: Approximately 500–1,000 visits per month (mostly branded)</li>
+        <li>Organic Keywords: Limited, dominated by brand name queries</li>
+        <li>Technical: No meta tags, thin content, no GA4 or Search Console configured</li>
+      </ul>
+    </section>
+
+    <!-- Key Insights & Risks -->
+    <section>
+      <h2>Key Insights & Risks</h2>
+      <h3>Positive Signals</h3>
+      <ul>
+        <li>Clear brand connection between Axion Agriculture and Golden Corn Export USA</li>
+        <li>High‑demand niche in yellow corn and feed grains for animal nutrition</li>
+        <li>Clean, fast‑loading pages that are straightforward to optimize and scale</li>
+        <li>Existing B2B calls‑to‑action (phone and WhatsApp) on Golden Corn pages</li>
+      </ul>
+
+      <h3>Risks & Gaps</h3>
+      <ul>
+        <li>Near‑zero organic visibility for demo sites and limited visibility for Golden Corn</li>
+        <li>Demo pages risk consuming crawl budget if indexed in search</li>
+        <li>Competitors often deploy long‑form pages (2,000–5,000 words) with rich assets</li>
+        <li>Lack of analytics prevents accurate measurement of ROI and campaign performance</li>
+      </ul>
+
+      <h3>Strategic Opportunity</h3>
+      <p>
+        The B2B export space for yellow corn and feed grains is less saturated than consumer
+        markets, creating an opportunity to dominate long‑tail, high‑intent search queries across
+        target regions.
+      </p>
+    </section>
+
+    <!-- SEO Strategy -->
+    <section>
+      <h2>SEO Strategy Overview</h2>
+      <p>
+        The overarching strategy is to invest heavily in Golden Corn Export USA as the primary
+        revenue driver while using Axion demo sites strictly as controlled staging environments.
+      </p>
+
+      <h3>Target Audience</h3>
+      <ul>
+        <li>Feed mills and animal nutrition companies</li>
+        <li>Commodity traders and distributors</li>
+        <li>Importers and aggregators in the Middle East, Africa, Asia, and Europe</li>
+      </ul>
+
+      <h3>Core Objectives (12 Months)</h3>
+      <ul>
+        <li>Secure top 3 rankings for key high‑intent export keywords</li>
+        <li>Reach 8,000–15,000 monthly organic visits by month 6</li>
+        <li>Reach 25,000+ monthly organic visits by month 12</li>
+        <li>Generate 50–100 qualified quote requests per month within 6–9 months</li>
+      </ul>
+
+      <h3>Strategy Pillars</h3>
+      <ul>
+        <li>On‑page optimization and long‑form content expansion</li>
+        <li>Technical SEO, core web vitals, and analytics implementation</li>
+        <li>Off‑page authority building and international SEO focus</li>
+      </ul>
+    </section>
+
+    <!-- On-Page, Content & Technical -->
+    <section>
+      <h2>On‑Page, Content & Technical Plan (Weeks 1–6)</h2>
+
+      <h3>Immediate Fixes (Weeks 1–2)</h3>
+      <ul>
+        <li>Create unique meta titles and descriptions for all key pages</li>
+        <li>Implement clear H1/H2 hierarchy mapped to target keywords</li>
+        <li>Install GA4 and Google Search Console for Golden Corn Export USA</li>
+        <li>Apply <code>noindex</code> to Axion Automobile and Axion Agriculture demo pages</li>
+      </ul>
+
+      <h3>Content Expansion (Weeks 3–6)</h3>
+      <ul>
+        <li>Rewrite /products/ to 2,000+ words with product specs, certifications, and FAQs</li>
+        <li>Launch dedicated product pages: /yellow-corn/, /barley-feed/, /soybean-meal/</li>
+        <li>Create country landing pages, starting with /export-to-uae/ and /export-to-saudi-arabia/</li>
+        <li>Publish cornerstone blog content, such as 
